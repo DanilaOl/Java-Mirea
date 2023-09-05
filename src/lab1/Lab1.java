@@ -7,7 +7,7 @@ public class Lab1 {
 //        task4();
 //        task5(args);
 //        task6();
-//        System.out.println(task7(5));
+//        System.out.println(task7(20));
     }
 
     public static void task3() {
@@ -18,7 +18,7 @@ public class Lab1 {
             sum += arr[i];
         }
 
-        System.out.println("Sum of array: " + sum + ". Arithmetical mean: " + sum / arr.length);
+        System.out.println("Sum of array: " + sum + ". Arithmetical mean: " + (float) sum / arr.length);
     }
 
     public static void task4() {
@@ -52,8 +52,16 @@ public class Lab1 {
             }
         }
 
-        int max = arr[0], min = arr[0], sum = 0;
-        //TODO: Where exactly 'while' needed
+        int max = arr[0], min = arr[0], sum = 0, i = 0;
+
+        while (i < arr.length) {
+            sum += arr[i];
+            if (arr[i] < min) {min = arr[i];}
+            if (arr[i] > max) {max = arr[i];}
+            i++;
+        }
+
+        System.out.println("Sum of array: " + sum + ". Min element: " + min + ".Max element: " + max);
     }
 
     public static void task5(String[] args) {
@@ -68,13 +76,13 @@ public class Lab1 {
         }
     }
 
-    public static int task7(int num) {
+    public static long task7(int num) {
         if (num < 0) {
             System.err.println("Error: no factorial for negative numbers");
             return -1;
         }
 
-        int fact = 1;
+        long fact = 1;
 
         for (int i = 1; i <= num; i++) {
             fact *= i;
